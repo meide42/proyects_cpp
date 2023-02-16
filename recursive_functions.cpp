@@ -56,6 +56,27 @@ void quicksort(tUnfilledArray &array){
     }
 }
 
+// zip using recursion
+typedef int tPair[2];
+typedef tPair tZippedList[ARRAY_LENGTH];
+
+void zip(tArray array1, tArray array2, tZippedList output, int index){
+    if (index != ARRAY_LENGTH){
+        output[index][0] = array1[index];
+        output[index][1] = array2[index];
+        zip(array1, array2, output, index + 1);
+    }
+}
+
+// join two lists with a function using recursion
+void joinWith(tArray array1, tArray array2, int (*func)(int, int), tArray output, int index){
+    if (index != ARRAY_LENGTH){
+        output[index] = func(array1[index], array2[index]);
+        joinWith(array1, array2, func, output, index + 1);
+    }
+
+}
+
 int main(){
 
     return 0;
