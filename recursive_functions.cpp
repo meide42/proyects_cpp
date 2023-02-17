@@ -87,9 +87,16 @@ int fact(int n){
 int fib(int n){
     if (n == 0 || n == 1) return 1;
     else return fib(n-2) + fib(n-1);
+}
 
+// max of an array function using recursion
+int max(tArray array, int index){
+    if (index == ARRAY_LENGTH - 1) return array[index];
+    int rec_max = max(array, index + 1);
+    return (array[index] > rec_max) ? array[index] : rec_max;
 }
 
 int main(){
+
     return 0;
 }
