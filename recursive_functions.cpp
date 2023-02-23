@@ -96,7 +96,37 @@ int max(tArray array, int index){
     return (array[index] > rec_max) ? array[index] : rec_max;
 }
 
+// sorting algorithm
+int min(const tArray array, int index, int &posMin);
+void swap(tArray array, int pos1, int pos2);
+void minSort(tArray array, int index){
+    if (index < ARRAY_LENGTH){
+        int posMin = index;
+        int arrayMin =  min(array, index, posMin);
+        swap(array, posMin, index);
+        minSort(array, index + 1);
+    }
+}
+
 int main(){
 
     return 0;
+}
+
+// Auxiliary functions
+int min(const tArray array, int index, int &posMin){
+    int min = array[index];
+    for (int i = index + 1; i < ARRAY_LENGTH; i++){
+        if (array[i] < min){
+            min = array[i];
+            posMin = i;
+        }
+    }
+    return min;
+}
+
+void swap(tArray array, int pos1, int pos2){
+    int aux = array[pos1];
+    array[pos1] = array[pos2];
+    array[pos2] = aux;
 }
