@@ -4,6 +4,7 @@ using namespace std;
 // Array type
 const int ARRAY_LENGTH = 10;
 typedef int tArray[ARRAY_LENGTH];
+ostream& operator<< (ostream& out, const tArray& array);
 
 // Recursive sum of elements in array
 int recursiveSum(tArray array, int index) {
@@ -109,7 +110,8 @@ void minSort(tArray array, int index){
 }
 
 int main(){
-
+    tArray array = {1,2,3,4,5,6,7,8,9};
+    cout << array;
     return 0;
 }
 
@@ -129,4 +131,12 @@ void swap(tArray array, int pos1, int pos2){
     int aux = array[pos1];
     array[pos1] = array[pos2];
     array[pos2] = aux;
+}
+
+ostream& operator<< (ostream& out, const tArray& array){
+    for (int i = 0; i < ARRAY_LENGTH; i++){
+        out << array[i] << " ";
+    }
+    out << endl;
+    return out;
 }
